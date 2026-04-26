@@ -40,6 +40,7 @@ let loadingRunId = 0;
 let loadingFrameId = 0;
 let loadingRevealTimeoutId = 0;
 let deniedHintTimeoutId = 0;
+let loadingMessageIntervalId = 0;
 let audioFadeFrameId = 0;
 let hasUserInteracted = false;
 let isMuted = false;
@@ -62,6 +63,11 @@ const clearFinalStageLoading = () => {
     if (loadingRevealTimeoutId) {
         clearTimeout(loadingRevealTimeoutId);
         loadingRevealTimeoutId = 0;
+    }
+
+    if (loadingMessageIntervalId) {
+        clearInterval(loadingMessageIntervalId);
+        loadingMessageIntervalId = 0;
     }
 
     displayArea.classList.remove("is-loading");
@@ -87,10 +93,19 @@ const renderFinalMessage = (runId) => {
 const renderFinalStageLoading = () => {
     const runId = loadingRunId;
 
+    const loaderMessages = [
+        "searching for the right words...",
+        "this one took a while to admit...",
+        "gathering every little feeling...",
+        "almost ready to be honest...",
+        "you sure you want the whole truth?",
+        "okay. here it comes.",
+    ];
+
     displayArea.classList.add("is-loading");
     displayArea.innerHTML = `
       <div class="final-loader" role="status" aria-live="polite">
-        <p class="final-loader-caption">One last little heartbeat before the whole sky gives in.</p>
+        <p class="final-loader-caption">${loaderMessages[0]}</p>
         <div class="final-loader-track" aria-hidden="true">
           <div class="final-loader-bar"></div>
         </div>
@@ -104,8 +119,27 @@ const renderFinalStageLoading = () => {
     const loader = displayArea.querySelector(".final-loader");
     const bar = displayArea.querySelector(".final-loader-bar");
     const percent = displayArea.querySelector(".final-loader-percent");
-    const duration = 8000;
+    const caption = displayArea.querySelector(".final-loader-caption");
+    const duration = 30000;
     let startedAt = 0;
+    let messageIndex = 0;
+
+    const cycleInterval = Math.floor(duration / loaderMessages.length);
+
+    loadingMessageIntervalId = setInterval(() => {
+        if (runId !== loadingRunId) {
+            clearInterval(loadingMessageIntervalId);
+            loadingMessageIntervalId = 0;
+            return;
+        }
+        messageIndex = (messageIndex + 1) % loaderMessages.length;
+        caption.style.opacity = "0";
+        setTimeout(() => {
+            if (runId !== loadingRunId) return;
+            caption.textContent = loaderMessages[messageIndex];
+            caption.style.opacity = "1";
+        }, 400);
+    }, cycleInterval);
 
     const step = (timestamp) => {
         if (runId !== loadingRunId) {
