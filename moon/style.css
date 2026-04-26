@@ -1,3 +1,7 @@
+.final-loader-caption {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+}
+
 :root {
     --night: #090611;
     --plum: #1f1027;
