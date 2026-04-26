@@ -104,7 +104,7 @@ const renderFinalStageLoading = () => {
     const loader = displayArea.querySelector(".final-loader");
     const bar = displayArea.querySelector(".final-loader-bar");
     const percent = displayArea.querySelector(".final-loader-percent");
-    const duration = 2500;
+    const duration = 8000;
     let startedAt = 0;
 
     const step = (timestamp) => {
