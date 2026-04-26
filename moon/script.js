@@ -94,12 +94,12 @@ const renderFinalStageLoading = () => {
     const runId = loadingRunId;
 
     const loaderMessages = [
-        "searching for the right words...",
-        "this one took a while to admit...",
-        "gathering every little feeling...",
-        "almost ready to be honest...",
-        "you sure you want the whole truth?",
-        "okay. here it comes.",
+"searching for the right words... 🌙",
+"this one took a while to admit... 🫣",
+"gathering every little feeling... 🥺",
+"almost ready to be honest... 💗",
+"you sure you want the whole truth? 😊",
+"okay. here it comes. 🌕",
     ];
 
     displayArea.classList.add("is-loading");
