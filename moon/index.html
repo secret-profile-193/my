@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pookie</title>
+    <meta name="description" content="You are my Moon &#10084; - A special interactive surprise.">
+    <link rel="shortcut icon" href="github.png" type="image/png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://secret-profile-193.github.io/moon/">
+    <meta property="og:title" content="Pookie">
+    <meta property="og:description" content="You are my Moon &#10084; - A special interactive surprise.">
+    <meta property="og:image" content="https://secret-profile-193.github.io/moon/images.jpg">
+    <meta property="og:image:secure_url" content="https://secret-profile-193.github.io/moon/images.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://secret-profile-193.github.io/moon/">
+    <meta property="twitter:title" content="Pookie">
+    <meta property="twitter:description" content="You are my Moon &#10084; - A special interactive surprise.">
+    <meta property="twitter:image" content="https://secret-profile-193.github.io/moon/images.jpg">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="romance-shell">
+        <button type="button" class="music-toggle" id="musicToggle" aria-pressed="false"
+            aria-label="Mute background music">
+            <span class="music-toggle-dot" aria-hidden="true"></span>
+            <span class="music-toggle-label" id="musicToggleLabel">Mute</span>
+        </button>
+        <p class="eyebrow">for my favorite person</p>
+        <h1>You are my moon in every phase.</h1>
+        <p class="intro">
+            Start with the faintest little glow and move closer until the only thing left is the truth.
+            Every version still points back to you.
+        </p>
+
+        <div class="controls">
+            <label id="moonlightLabel">Choose your moonlight</label>
+            <div class="custom-dropdown" id="moonlightDropdown">
+                <button type="button" class="dropdown-trigger" id="dropdownTrigger" aria-haspopup="listbox"
+                    aria-expanded="false" aria-controls="dropdownMenu" aria-labelledby="moonlightLabel dropdownValue">
+                    <span class="dropdown-copy">
+                        <span class="dropdown-value" id="dropdownValue">A soft little hint</span>
+                        <span class="dropdown-hint">pick your favorite glow</span>
+                    </span>
+                    <span class="dropdown-icon" aria-hidden="true"></span>
+                </button>
+
+                <div class="dropdown-menu" id="dropdownMenu" role="listbox" aria-labelledby="moonlightLabel"
+                    aria-hidden="true">
+                    <button type="button" class="dropdown-option is-selected" role="option" aria-selected="true"
+                        data-value="">
+                        <span class="option-text">A soft little hint</span>
+                        <span class="option-meta">just enough to blush</span>
+                    </button>
+                    <button type="button" class="dropdown-option" role="option" aria-selected="false"
+                        data-value="120p">
+                        <span class="option-text">A shy little glow</span>
+                        <span class="option-meta">the very first spark</span>
+                    </button>
+                    <button type="button" class="dropdown-option" role="option" aria-selected="false"
+                        data-value="420p">
+                        <span class="option-text">Getting warmer</span>
+                        <span class="option-meta">more moon, more heart</span>
+                    </button>
+                    <button type="button" class="dropdown-option" role="option" aria-selected="false"
+                        data-value="720p">
+                        <span class="option-text">Almost everything</span>
+                        <span class="option-meta">you can nearly see it all</span>
+                    </button>
+                    <button type="button" class="dropdown-option" role="option" aria-selected="false"
+                        data-value="1080p">
+                        <span class="option-text">The whole truth</span>
+                        <span class="option-meta">no more hiding it</span>
+                    </button>
+                </div>
+
+                <select id="resolutionDropdown" class="visually-hidden" tabindex="-1" aria-hidden="true">
+                    <option value="">A soft little hint</option>
+                    <option value="120p">A shy little glow</option>
+                    <option value="420p">Getting warmer</option>
+                    <option value="720p">Almost everything</option>
+                    <option value="1080p">The whole truth</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="display-frame">
+            <div class="display-area" id="displayArea"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
